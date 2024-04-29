@@ -83,6 +83,6 @@ public class ToDoList {
 
 		Scanner in = new Scanner(System.in);
 
-		return in.next().strip();
+		return in.nextLine().strip();
 	}
 }

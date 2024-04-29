@@ -23,5 +23,3 @@ public class GenericBox<T> {
 	}
 
 }
-
-// Füge Methoden zum Hinzufügen, Abrufen und Ausgeben aller Elemente hinzu.
