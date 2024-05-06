@@ -2,17 +2,11 @@ package spiel;
 
 public class Spielfeld {
 
-	public static void main(String[] args) {
+	char[][] Schiffpos;
+	public Spielfeld(int x, int y) {
 		
+		Schiffpos = new char[x][y];
 		
-		// Koordinate[][] Feld = new Koordinate[9][7];
-
-		
-
-		// Speichere die Züge 
-		int[] Zuege = new int[4];
-
-		// for (
-
 	}
+
 }

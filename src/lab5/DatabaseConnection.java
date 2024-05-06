@@ -1,7 +1,7 @@
-package lab6;
+package lab5;
 
 class DatabaseConnection {
-	static private DatabaseConnection instance = null;
+	static private DatabaseConnection instance;
 	
 	
 	private DatabaseConnection() {

@@ -1,4 +1,4 @@
-package lab4;
+package lab3;
 
 public class Recktangle extends Shape {
 

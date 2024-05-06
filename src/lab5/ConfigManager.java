@@ -1,7 +1,7 @@
-package lab6;
+package lab5;
 
 class ConfigManager {
-	static private ConfigManager instance = null;
+	static private ConfigManager instance;
 	
 	
 	private ConfigManager() {

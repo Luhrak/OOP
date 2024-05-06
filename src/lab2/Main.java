@@ -1,34 +1,26 @@
 package lab2;
+
 public class Main {
 
 	public static void main(String[] args) {
+
+		Hund Max = new Hund(2, true);
+		Tier.machLaut(); 
+
+		
+		/////////////////////
 		
 		
-		Book b1 = new Book();
-		// Book.Roman r1 = b1.new Roman();
-		b1.title = "Warrior Cats";
-		b1.author = "Errin Hunter";
-		b1.isRead = true;
-		b1.ISBN = 1;
-		// b1.r1.lang = "deutsch";
-		// b1.r1.pageCount = 100;
-		b1.displayDetails();
+		Form[] formSammlung = new Form[3];
 		
-		Book b2 = new Book();
-		b2.title = "Selbstbild";
-		b2.author = "Carol Dweck";
-		b2.isRead = true;
-		b2.ISBN = 2;
+		formSammlung[0] = new Kreis("K1", 5);
+		formSammlung[1] = new Kreis("K2", 2);
+		formSammlung[2] = new Rechteck("R1", 3, 6);
 		
-		Book b3 = new Book();
-		b3.title = "Harry Potter";
-		b3.author = "JK Rolling";
-		b3.isRead = false;
-		b3.ISBN = 3;
-		
-		
+		for(int i = 0; i < formSammlung.length; i++) {
+			formSammlung[i].zeiche();
 		}
 		
+	}
 
-	
 }

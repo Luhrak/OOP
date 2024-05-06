@@ -8,15 +8,16 @@ public class Flotte {
 
 		for (int i = 0; i < this.Schiffe.length; i++) {
 
-			this.Schiffe[i] = new Schiff((int) Math.random() * 9 + 1, (int) Math.random() * 7 + 1);
+			// 9 & 7 sollten Variablen sein von Bermuda aka Spielfeld size 
+			this.Schiffe[i] = new Schiff((int)(Math.random() * 9), (int)(Math.random() * 7));
 		}
-	}
+	} 
 
 	public int Peilsender(int x, int y) {
 
-		// für schiff (bekommt positionen x,y
-		// schaue ob oben/unten/links/rechts/diagonal jede richtung schiff ist
-		// für jeder der richtungen die positiv ausschlägt erhöhe um 1
+		// für schiff an posi. x y  
+		// schaue ob jeder richtung ein schiff ist (hat selbes x oder y value oder [diagonal] 
+		// Zähle alle Schiffe die gefunden wurden 
 		// return anzahl der gefundenen schiffe
 
 		return 0;
