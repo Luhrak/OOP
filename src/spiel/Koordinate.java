@@ -2,13 +2,25 @@ package spiel;
 
 public class Koordinate {
 
-	int x; 
-	int y; 
+	private int x; 
+	private int y; 
 	
-	Koordinate(int x, int y) {
+	public Koordinate(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 	
+	public boolean equals(Koordinate k2) {
+		
+		if (this.x == k2.x && this.y == k2.y) {
+			return true;			
+		} else { 
+			return false;
+		}
+		
+	}
+	
+	// Setter soll nicht verwendet werden 
+	// Getter soll vermieden werden 
 	
 }

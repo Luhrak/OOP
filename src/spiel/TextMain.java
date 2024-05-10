@@ -38,6 +38,8 @@ public class TextMain {
 				System.out.print(" " + spiel.getFeld(x, y));
 			}
 			System.out.println();
+			
 		}
+
 	}
 }
