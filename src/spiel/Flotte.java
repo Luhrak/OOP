@@ -8,7 +8,7 @@ public class Flotte {
 	public Schiff[] Schiffe;
 	
 
-	public Flotte(int anzahl) { 
+	public Flotte(int anzahl) { // import spielfeld höche & breite 
 		
 		Schiffe = new Schiff[anzahl];
 		Set<Integer> posi = new HashSet<Integer>();
