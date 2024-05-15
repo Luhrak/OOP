@@ -6,6 +6,12 @@ public class TextMain {
 
 	public static void main(String[] args) {
 		Brettspiel spiel = new Bermuda(9, 7);
+		
+		// TESTING 
+		Flotte test = new Flotte(4);
+		System.out.println(test.Peilsender(1, 1)); 
+		// TESTING 
+		
 		Scanner input = new Scanner(System.in);
 		zeigeSpielfeld(spiel);
 

@@ -2,8 +2,8 @@ package spiel;
 
 public class Koordinate {
 
-	private int x; 
-	private int y; 
+	public int x; 
+	public int y; 
 	
 	public Koordinate(int x, int y) {
 		this.x = x;
