@@ -2,10 +2,10 @@ package spiel;
 
 public class Spielfeld {
 
-	char[][] Schiffpos;
+	char[][] Grid;
 	public Spielfeld(int x, int y) {
 		
-		Schiffpos = new char[x][y];
+		Grid = new char[x][y];
 		
 	}
 

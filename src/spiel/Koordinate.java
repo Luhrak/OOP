@@ -2,8 +2,8 @@ package spiel;
 
 public class Koordinate {
 
-	public int x; 
-	public int y; 
+	private int x; 
+	private int y; 
 	
 	public Koordinate(int x, int y) {
 		this.x = x;
@@ -21,6 +21,13 @@ public class Koordinate {
 	}
 	
 	// Setter soll nicht verwendet werden 
+	
 	// Getter soll vermieden werden 
+	public int getX() {
+		return this.x; 
+	}
+	public int getY() {
+		return this.y; 
+	}
 	
 }

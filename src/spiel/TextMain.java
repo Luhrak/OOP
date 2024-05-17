@@ -8,7 +8,7 @@ public class TextMain {
 		Brettspiel spiel = new Bermuda(9, 7);
 		
 		// TESTING 
-		Flotte test = new Flotte(4);
+		Flotte test = new Flotte(4, 9, 7);
 		System.out.println(test.Peilsender(1, 1)); 
 		// TESTING 
 		
