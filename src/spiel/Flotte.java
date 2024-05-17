@@ -45,6 +45,7 @@ public class Flotte {
 		int counter = 0;
 		boolean hit = false;
 
+		// Bei direktem hit soll 1 returned werden 
 		if (scanCoord(x, y)) {
 			counter++;
 			hit = true;
@@ -52,32 +53,57 @@ public class Flotte {
 
 		if (!hit) {
 
-			for (Schiff schiff : this.Schiffe) {
-
-				if (schiff.getX() == x) {
-					counter++;
-				}
-
-				if (schiff.getY() == y) {
-					counter++;
-				}
-			}
-
 			int xUp = x;
 			int xDown = x;
 			int yUp = y;
 			int yDown = y;
+			boolean n = false, o = false, s = false, w = false, no = false, so = false, sw = false, nw = false;
 
 			for (int j = 0; j < this.xMax || j < this.yMax; j++) {
 
-				counter += scanRichtung(xDown, yDown);
-				
-				counter += scanRichtung(xUp, yDown);
-				
-				counter += scanRichtung(xDown, yUp);
-				
-				counter += scanRichtung(xUp, yUp);
-				
+				// Grade Richtungen
+
+				if (scanRichtung(x, yUp) && !n) {
+					counter++;
+					n = true;
+				}
+
+				if (scanRichtung(xUp, y) && !o) {
+					counter++;
+					o = true;
+				}
+
+				if (scanRichtung(x, yDown) && !s) {
+					counter++;
+					s = true;
+				}
+
+				if (scanRichtung(xDown, y) && !w) {
+					counter++;
+					w = true;
+				}
+
+				// Diagonale Richtungen
+
+				if (scanRichtung(xUp, yUp) && !no) {
+					counter++;
+					no = true;
+				}
+
+				if (scanRichtung(xUp, yDown) && !so) {
+					counter++;
+					so = true;
+				}
+
+				if (scanRichtung(xDown, yDown) && !sw) {
+					counter++;
+					sw = true;
+				}
+
+				if (scanRichtung(xDown, yUp) && !nw) {
+					counter++;
+					nw = true;
+				}
 				
 				xUp++;
 				yUp++;
@@ -96,16 +122,16 @@ public class Flotte {
 
 	}
 
-	private int scanRichtung(int x, int y) {
+	private boolean scanRichtung(int x, int y) {
 
 		if (isInBounds(x, y)) {
 
 			// ist shiff an xy
 			if (scanCoord(x, y)) {
-				return 1;
+				return true;
 			}
 		}
-		return 0;
+		return false;
 	}
 
 	private boolean isInBounds(int x, int y) {
@@ -120,6 +146,8 @@ public class Flotte {
 
 		for (int i = 0; i < this.Schiffe.length; i++) {
 			if (this.Schiffe[i].getX() == x & this.Schiffe[i].getY() == y) {
+				
+				this.Schiffe[i].setGefunden();
 				return true;
 			}
 		}

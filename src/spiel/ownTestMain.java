@@ -13,5 +13,6 @@ public class ownTestMain {
 		}
 
 		System.out.println(flotte.Peilsender(1, 1)); 
+		
 	}
 }

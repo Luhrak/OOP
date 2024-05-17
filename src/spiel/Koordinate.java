@@ -22,7 +22,6 @@ public class Koordinate {
 	
 	// Setter soll nicht verwendet werden 
 	
-	// Getter soll vermieden werden 
 	public int getX() {
 		return this.x; 
 	}
