@@ -33,7 +33,7 @@ public class Flotte {
 				posi.add(x * 100 + y);
 				after = posi.size();
 
-			} while (before > after);
+			} while (before == after);
 
 			Schiffe[i] = new Schiff(x, y);
 		}
@@ -45,7 +45,7 @@ public class Flotte {
 		int counter = 0;
 		boolean hit = false;
 
-		// Bei direktem hit soll 1 returned werden 
+		// Bei direktem hit soll 1 returned werden
 		if (scanCoord(x, y)) {
 			counter++;
 			hit = true;
@@ -63,48 +63,48 @@ public class Flotte {
 
 				// Grade Richtungen
 
-				if (scanRichtung(x, yUp) && !n) {
+				if (!n && scanRichtung(x, yUp)) {
 					counter++;
 					n = true;
 				}
 
-				if (scanRichtung(xUp, y) && !o) {
+				if (!o && scanRichtung(xUp, y)) {
 					counter++;
 					o = true;
 				}
 
-				if (scanRichtung(x, yDown) && !s) {
+				if (!s && scanRichtung(x, yDown)) {
 					counter++;
 					s = true;
 				}
 
-				if (scanRichtung(xDown, y) && !w) {
+				if (!w && scanRichtung(xDown, y)) {
 					counter++;
 					w = true;
 				}
 
 				// Diagonale Richtungen
 
-				if (scanRichtung(xUp, yUp) && !no) {
+				if (!no && scanRichtung(xUp, yUp)) {
 					counter++;
 					no = true;
 				}
 
-				if (scanRichtung(xUp, yDown) && !so) {
+				if (!so && scanRichtung(xUp, yDown)) {
 					counter++;
 					so = true;
 				}
 
-				if (scanRichtung(xDown, yDown) && !sw) {
+				if (!sw && scanRichtung(xDown, yDown)) {
 					counter++;
 					sw = true;
 				}
 
-				if (scanRichtung(xDown, yUp) && !nw) {
+				if (!nw && scanRichtung(xDown, yUp)) {
 					counter++;
 					nw = true;
 				}
-				
+
 				xUp++;
 				yUp++;
 				xDown--;
@@ -146,7 +146,7 @@ public class Flotte {
 
 		for (int i = 0; i < this.Schiffe.length; i++) {
 			if (this.Schiffe[i].getX() == x & this.Schiffe[i].getY() == y) {
-				
+
 				this.Schiffe[i].setGefunden();
 				return true;
 			}
