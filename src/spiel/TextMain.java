@@ -17,7 +17,7 @@ public class TextMain {
 
 		do {
 
-// ------ Spielereingabe ------
+			// ------ Spielereingabe ------
 			System.out.println("Koordinate eingeben zwischen A1 und " + (char) ('A' + spiel.getBreite())
 					+ (char) ('1' + spiel.getHoehe()));
 			String s = input.nextLine();
@@ -28,7 +28,7 @@ public class TextMain {
 		} while (!spiel.istEnde());
 
 		if (spiel.istGewonnen()) {
-			System.out.println("Herzlichen Gl¨uckwunsch!");
+			System.out.println("Herzlichen Glückwunsch!");
 		}
 	}
 
