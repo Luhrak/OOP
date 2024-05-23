@@ -1,34 +1,31 @@
 package spiel;
 
-public class Bermuda implements Brettspiel {
+public class Bermuda extends Spielfeld implements Brettspiel {
 
-	private int breite; 
-	private int hoehe; 
-	
-	Bermuda(int x, int y) {
-		this.breite = x; 
-		this.hoehe = y;
+	Bermuda(int breite, int hoehe) {
+		super(breite, hoehe);
 	}
-	
+
 	@Override
 	public int getHoehe() {
-		return hoehe;
+		return super.hoehe;
 	}
 
 	@Override
 	public int getBreite() {
-		return breite;
+		return this.breite;
 	}
 
 	@Override
 	public boolean istEnde() {
-		// TODO Auto-generated method stub
-		return false;
+		return istGewonnen();
 	}
 
 	@Override
 	public boolean istGewonnen() {
-		// TODO Auto-generated method stub
+
+		
+		
 		return false;
 	}
 

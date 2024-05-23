@@ -40,85 +40,79 @@ public class Flotte {
 
 	}
 
-	public int Peilsender(int x, int y) {
-
-		int counter = 0;
-		boolean hit = false;
+	public char Peilsender(int x, int y) {
 
 		// Bei direktem hit soll 1 returned werden
 		if (scanCoord(x, y)) {
-			counter++;
-			hit = true;
+			return 'x';
 		}
 
-		if (!hit) {
+		
+		// Ansonsten scane in alle 8 Himmelsrichtungen 
+		int counter = 0; 
+		int xUp = x;
+		int xDown = x;
+		int yUp = y;
+		int yDown = y;
+		
+		// bool damit verdeckte Schiffe nicht mitberechnet werden 
+		boolean n = false, o = false, s = false, w = false, no = false, so = false, sw = false, nw = false;
 
-			int xUp = x;
-			int xDown = x;
-			int yUp = y;
-			int yDown = y;
-			boolean n = false, o = false, s = false, w = false, no = false, so = false, sw = false, nw = false;
+		
+		for (int j = 0; j < this.xMax || j < this.yMax; j++) {
 
-			for (int j = 0; j < this.xMax || j < this.yMax; j++) {
+			// Grade Richtungen
 
-				// Grade Richtungen
-
-				if (!n && scanRichtung(x, yUp)) {
-					counter++;
-					n = true;
-				}
-
-				if (!o && scanRichtung(xUp, y)) {
-					counter++;
-					o = true;
-				}
-
-				if (!s && scanRichtung(x, yDown)) {
-					counter++;
-					s = true;
-				}
-
-				if (!w && scanRichtung(xDown, y)) {
-					counter++;
-					w = true;
-				}
-
-				// Diagonale Richtungen
-
-				if (!no && scanRichtung(xUp, yUp)) {
-					counter++;
-					no = true;
-				}
-
-				if (!so && scanRichtung(xUp, yDown)) {
-					counter++;
-					so = true;
-				}
-
-				if (!sw && scanRichtung(xDown, yDown)) {
-					counter++;
-					sw = true;
-				}
-
-				if (!nw && scanRichtung(xDown, yUp)) {
-					counter++;
-					nw = true;
-				}
-
-				xUp++;
-				yUp++;
-				xDown--;
-				yDown--;
+			if (!n && scanRichtung(x, yUp)) {
+				counter++;
+				n = true;
 			}
 
+			if (!o && scanRichtung(xUp, y)) {
+				counter++;
+				o = true;
+			}
+
+			if (!s && scanRichtung(x, yDown)) {
+				counter++;
+				s = true;
+			}
+
+			if (!w && scanRichtung(xDown, y)) {
+				counter++;
+				w = true;
+			}
+
+			// Diagonale Richtungen
+
+			if (!no && scanRichtung(xUp, yUp)) {
+				counter++;
+				no = true;
+			}
+
+			if (!so && scanRichtung(xUp, yDown)) {
+				counter++;
+				so = true;
+			}
+
+			if (!sw && scanRichtung(xDown, yDown)) {
+				counter++;
+				sw = true;
+			}
+
+			if (!nw && scanRichtung(xDown, yUp)) {
+				counter++;
+				nw = true;
+			}
+
+			xUp++;
+			yUp++;
+			xDown--;
+			yDown--;
 		}
 
-		return counter;
-
-		// schaue ob jeder richtung ein schiff ist (hat selbes x oder y value oder
-		// [diagonal]
-		// Zähle alle Schiffe die gefunden wurden
-		// return anzahl der gefundenen schiffe
+		char c = Integer.toString(counter).charAt(0);
+		return c;
 
 	}
 
@@ -165,7 +159,7 @@ public class Flotte {
 		return true;
 	}
 
-	public String get(int i) {
+	public String SchiffAtToString(int i) {
 
 		return "(" + Schiffe[i].getX() + "/" + Schiffe[i].getY() + ")";
 	}
