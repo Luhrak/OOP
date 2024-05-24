@@ -6,14 +6,15 @@ public class Spielfeld {
 
 	protected int breite; 
 	protected int hoehe; 
-	public char[][] Grid;
+	static char empty = '+';
+	private char[][] Grid;
 
 	public Spielfeld(int breite, int hoehe) {
 
 		Grid = new char[breite][hoehe];
 
 		for (char[] row : Grid) {
-			Arrays.fill(row, '+');
+			Arrays.fill(row, empty);
 		}
 
 	}

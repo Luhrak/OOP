@@ -2,8 +2,13 @@ package spiel;
 
 public class Bermuda extends Spielfeld implements Brettspiel {
 
+	Flotte flotte;
+
 	Bermuda(int breite, int hoehe) {
 		super(breite, hoehe);
+
+		flotte = new Flotte(4, this.breite, this.hoehe);
+
 	}
 
 	@Override
@@ -23,21 +28,17 @@ public class Bermuda extends Spielfeld implements Brettspiel {
 
 	@Override
 	public boolean istGewonnen() {
-
-		
-		
-		return false;
+		return flotte.istGewonnen();
 	}
 
 	@Override
 	public char getFeld(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.get(x, y);
 	}
 
 	@Override
 	public void waehle(int x, int y) {
-		// TODO Auto-generated method stub
+		flotte.Peilsender(x, y);
 
 	}
 

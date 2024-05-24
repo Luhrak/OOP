@@ -47,25 +47,25 @@ public class TicTacToe implements Brettspiel {
 		return feld[x][y];
 	}
 
-@Override
-public void waehle(int x, int y) {
-Random zufall = new Random();
+	@Override
+	public void waehle(int x, int y) {
+		Random zufall = new Random();
 
-if (feld[x][y] == EMPTY) {
-feld[x][y] = 'X';
-if (!istEnde()) {
-boolean posGefunden = false;
-do {
-int compx = zufall.nextInt(this.x);
-int compy = zufall.nextInt(this.x);
-if (feld[compx][compy] == EMPTY) {
-feld[compx][compy] = 'O';
-posGefunden = true;
-}
-} while (!posGefunden);
-}
-}
-}
+		if (feld[x][y] == EMPTY) {
+			feld[x][y] = 'X';
+			if (!istEnde()) {
+				boolean posGefunden = false;
+				do {
+					int compx = zufall.nextInt(this.x);
+					int compy = zufall.nextInt(this.x);
+					if (feld[compx][compy] == EMPTY) {
+						feld[compx][compy] = 'O';
+						posGefunden = true;
+					}
+				} while (!posGefunden);
+			}
+		}
+	}
 
 	@Override
 	public boolean istGewonnen() {
