@@ -10,6 +10,9 @@ public class Spielfeld {
 	private char[][] Grid;
 
 	public Spielfeld(int breite, int hoehe) {
+		
+		this.breite = breite; 
+		this.hoehe = hoehe; 
 
 		Grid = new char[breite][hoehe];
 
