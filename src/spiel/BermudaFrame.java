@@ -1,5 +1,7 @@
 package spiel;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 public class BermudaFrame extends JFrame {
@@ -7,6 +9,7 @@ public class BermudaFrame extends JFrame {
 	public BermudaFrame() {
 
 		this.setSize(900, 700);
+		this.setMinimumSize(new Dimension(450, 350));
 		this.setTitle("Bermuda");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

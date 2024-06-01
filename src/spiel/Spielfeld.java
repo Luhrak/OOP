@@ -6,7 +6,7 @@ public class Spielfeld {
 
 	protected int breite; 
 	protected int hoehe; 
-	static char empty = '+';
+	final static char empty = ' ';
 	private char[][] Grid;
 
 	public Spielfeld(int breite, int hoehe) {

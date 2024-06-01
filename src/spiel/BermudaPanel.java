@@ -3,8 +3,6 @@ package spiel;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class BermudaPanel extends JPanel implements ActionListener {
@@ -21,7 +19,7 @@ public class BermudaPanel extends JPanel implements ActionListener {
 			for (int j = 0; j < h; j++) {
 
 				String butName = Character.toString(spiel.getFeld(i, j));
-				JButton button = new Kachel(butName, i, j);
+				Kachel button = new Kachel(butName, i, j);
 				button.addActionListener(this);
 				this.add(button);
 			}
@@ -38,13 +36,4 @@ public class BermudaPanel extends JPanel implements ActionListener {
 
 }
 
-class Kachel extends JButton {
 
-	Koordinate koordinate;
-
-	public Kachel(String name, int x, int y) {
-
-		super(name);
-		this.koordinate = new Koordinate(x, y);
-	}
-}

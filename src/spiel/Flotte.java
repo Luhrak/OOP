@@ -44,7 +44,7 @@ public class Flotte {
 
 		// Bei direktem hit soll 1 returned werden
 		if (scanCoord(x, y)) {
-			return 'x';
+			return 'X';
 		}
 
 		
