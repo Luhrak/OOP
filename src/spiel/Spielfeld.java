@@ -4,17 +4,17 @@ import java.util.Arrays;
 
 public class Spielfeld {
 
-	protected int breite; 
-	protected int hoehe; 
+	protected int b; 
+	protected int h; 
 	final static char empty = ' ';
 	private char[][] Grid;
 
-	public Spielfeld(int breite, int hoehe) {
+	public Spielfeld(int b, int h) {
 		
-		this.breite = breite; 
-		this.hoehe = hoehe; 
+		this.b = b; 
+		this.h= h; 
 
-		Grid = new char[breite][hoehe];
+		Grid = new char[b][h];
 
 		for (char[] row : Grid) {
 			Arrays.fill(row, empty);

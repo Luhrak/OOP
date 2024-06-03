@@ -38,6 +38,10 @@ public class Flotte {
 			Schiffe[i] = new Schiff(x, y);
 		}
 
+		// Cheat
+		for (int i = 0; i < 4; i++) {
+			System.out.println(SchiffAtToString(i));
+		}
 	}
 
 	public char Peilsender(int x, int y) {
@@ -47,18 +51,16 @@ public class Flotte {
 			return 'X';
 		}
 
-		
-		// Ansonsten scane in alle 8 Himmelsrichtungen 
-		int counter = 0; 
+		// Ansonsten scane in alle 8 Himmelsrichtungen
+		int counter = 0;
 		int xUp = x;
 		int xDown = x;
 		int yUp = y;
 		int yDown = y;
-		
-		// bool damit verdeckte Schiffe nicht mitberechnet werden 
+
+		// bool damit verdeckte Schiffe nicht mitberechnet werden
 		boolean n = false, o = false, s = false, w = false, no = false, so = false, sw = false, nw = false;
 
-		
 		for (int j = 0; j < this.xMax || j < this.yMax; j++) {
 
 			// Grade Richtungen
@@ -161,6 +163,11 @@ public class Flotte {
 
 	public String SchiffAtToString(int i) {
 
-		return "(" + Schiffe[i].getX() + "/" + Schiffe[i].getY() + ")";
+		char x = (char) (Schiffe[i].getX() + 'A');
+		char y = (char) (Schiffe[i].getY() + '1');
+
+		return "(" + x + "/" + y + ")";
+//		int x = (int) (s.charAt(0) - 'A');
+//		int y = (int) (s.charAt(1) - '1');
 	}
 }

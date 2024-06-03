@@ -4,21 +4,21 @@ public class Bermuda extends Spielfeld implements Brettspiel {
 
 	Flotte flotte;
 
-	Bermuda(int anzahl, int breite, int hoehe) {
-		super(breite, hoehe);
+	Bermuda(int anzahl, int b, int h) {
+		super(b, h);
 
-		flotte = new Flotte(anzahl, this.breite, this.hoehe);
+		flotte = new Flotte(anzahl, this.b, this.h);
 
 	}
 
 	@Override
 	public int getHoehe() {
-		return super.hoehe;
+		return super.h;
 	}
 
 	@Override
 	public int getBreite() {
-		return this.breite;
+		return this.b;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class Bermuda extends Spielfeld implements Brettspiel {
 	@Override
 	public void waehle(int x, int y) {
 		
-		if (x < 0 || x >= this.breite || y < 0 || y >= this.hoehe) {
+		if (x < 0 || x >= this.b || y < 0 || y >= this.h) {
 			
 			System.err.println("Input out of bounds.");
 			

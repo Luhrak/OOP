@@ -25,7 +25,7 @@ class Kachel extends JButton {
 		Kachel delegate = this;
 		this.addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent evt) {
-				delegate.setForeground(new Color(210, 210, 210));
+				delegate.setForeground(new Color(230, 230, 230));
 			}
 
 			public void mouseExited(MouseEvent evt) {
@@ -61,7 +61,7 @@ class Kachel extends JButton {
 		if (this.getText().equals("X")) {
 			g.setColor(new Color(150, 10, 10));
 		}
-		g.drawString(this.getText(), w / 2 , h / 2 );
+		g.drawString(this.getText(), (w-15) / 2 , (h+25) / 2);
 
 	}
 }
