@@ -20,7 +20,7 @@ class Kachel extends JButton {
 		this.setBorderPainted(false);
 		this.setBackground(new Color(35,140,240));
 		this.setForeground(Color.lightGray);
-		this.setFont(new Font("Comic Sans ms", Font.PLAIN, 30));
+		this.setFont(new Font("Comic Sans ms", Font.PLAIN, 30)); 
 		
 		Kachel delegate = this;
 		this.addMouseListener(new MouseAdapter() {

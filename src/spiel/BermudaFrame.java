@@ -8,8 +8,7 @@ public class BermudaFrame extends JFrame {
 
 	public BermudaFrame() {
 
-		this.setVisible(true);
-		this.setSize(900, 700);
+		this.setSize(700, 900);
 		this.setMinimumSize(new Dimension(450, 350));
 		this.setTitle("Bermuda");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,6 +16,7 @@ public class BermudaFrame extends JFrame {
 		// TODO: make these ints user inputs instead  
 		add(new BermudaPanel(4, 9, 7));
 
+		this.setVisible(true);
 	}
 
 	public static void main(String[] args) {

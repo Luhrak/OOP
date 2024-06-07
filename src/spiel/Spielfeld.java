@@ -12,9 +12,10 @@ public class Spielfeld {
 	public Spielfeld(int b, int h) {
 		
 		this.b = b; 
-		this.h= h; 
+		this.h = h; 
 
-		Grid = new char[b][h];
+		// bei char array muss h und b vertauscht sein also: 
+		Grid = new char[h][b];
 
 		for (char[] row : Grid) {
 			Arrays.fill(row, empty);
@@ -24,12 +25,12 @@ public class Spielfeld {
 
 	public void set(int x, int y, char update) {
 
-		this.Grid[x][y] = update;
+		this.Grid[y][x] = update;
 	}
 
 	public char get(int x, int y) {
 
-		return this.Grid[x][y];
+		return this.Grid[y][x];
 	}
 
 }
