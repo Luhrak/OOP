@@ -1,4 +1,4 @@
-package spiel;
+package spiel.grafic;
 
 import java.awt.Dimension;
 
@@ -8,7 +8,7 @@ public class BermudaFrame extends JFrame {
 
 	public BermudaFrame() {
 
-		this.setSize(700, 900);
+		this.setSize(900, 700);
 		this.setMinimumSize(new Dimension(450, 350));
 		this.setTitle("Bermuda");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

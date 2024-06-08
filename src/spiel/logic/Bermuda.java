@@ -1,14 +1,19 @@
-package spiel;
+package spiel.logic;
 
 public class Bermuda extends Spielfeld implements Brettspiel {
 
 	Flotte flotte;
 
-	Bermuda(int anzahl, int b, int h) {
+	public Bermuda(int anzahl, int b, int h) {
 		super(b, h);
 
 		flotte = new Flotte(anzahl, this.b, this.h);
 
+		
+		// CHEAT show where ships are
+//		for (int i = 0; i<flotte.Schiffe.length; i++) {	
+//			this.set(flotte.Schiffe[i].getX(), flotte.Schiffe[i].getY(), '+');
+//		}
 	}
 
 	@Override
@@ -38,14 +43,20 @@ public class Bermuda extends Spielfeld implements Brettspiel {
 
 	@Override
 	public void waehle(int x, int y) {
-		
+
 		if (x < 0 || x >= this.b || y < 0 || y >= this.h) {
-			
+
 			System.err.println("Input out of bounds.");
-			
-		} else { 
-			
+
+		} else {
+
 			this.set(x, y, flotte.Peilsender(x, y));
+			
+			
+			// CHEAT show ship hits 
+//			for (Schiff i : flotte.Schiffe) {
+//				System.out.println(i.istGefunden());
+//			}
 			
 		}
 

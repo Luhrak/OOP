@@ -2,6 +2,8 @@ package spiel;
 
 import java.util.Random;
 
+import spiel.logic.Brettspiel;
+
 public class TicTacToe implements Brettspiel {
 	static char EMPTY = '.';
 	private int x, y;

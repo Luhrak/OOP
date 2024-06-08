@@ -1,4 +1,4 @@
-package spiel;
+package spiel.logic;
 
 public interface Brettspiel {
 // Liefert die Groesse des Spielfelds

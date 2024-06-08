@@ -1,20 +1,20 @@
-package spiel;
+package spiel.logic;
 
 import java.util.Arrays;
 
 public class Spielfeld {
 
-	protected int b; 
-	protected int h; 
+	protected int b;
+	protected int h;
 	final static char empty = ' ';
 	private char[][] Grid;
 
 	public Spielfeld(int b, int h) {
-		
-		this.b = b; 
-		this.h = h; 
 
-		// bei char array muss h und b vertauscht sein also: 
+		this.b = b;
+		this.h = h;
+
+		// bei char array muss h und b vertauscht sein also:
 		Grid = new char[h][b];
 
 		for (char[] row : Grid) {

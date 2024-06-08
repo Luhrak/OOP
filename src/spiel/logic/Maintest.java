@@ -1,8 +1,8 @@
-package spiel;
+package spiel.logic;
 
 import java.util.Scanner;
 
-public class TextMain {
+public class Maintest {
 
 	public static void main(String[] args) {
 		Brettspiel spiel = new Bermuda(4, 9, 7);

@@ -1,4 +1,4 @@
-package spiel;
+package spiel.logic;
 
 public class Schiff extends Koordinate {
 

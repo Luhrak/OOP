@@ -1,4 +1,4 @@
-package spiel;
+package spiel.logic;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -38,25 +38,27 @@ public class Flotte {
 			Schiffe[i] = new Schiff(x, y);
 		}
 
-		// Cheat
-		for (int i = 0; i < 4; i++) {
-			System.out.println(SchiffAtToString(i));
-		}
+		// CHEAT show ships at beginning 
+//		for (int i = 0; i < 4; i++) {
+//			System.out.println(SchiffAtToString(i));
+//		}
 	}
 
 	public char Peilsender(int x, int y) {
 
 		// Bei direktem hit soll 1 returned werden
-		if (scanCoord(x, y)) {
+		if (scanCoord(x, y) != -1) {
+			this.Schiffe[scanCoord(x,y)].setGefunden();
 			return 'X';
 		}
 
 		// Ansonsten scane in alle 8 Himmelsrichtungen
+		// Incrementiere alle direkt um 1 weil an mittelposition ist ja nichts 
 		int counter = 0;
-		int xUp = x;
-		int xDown = x;
-		int yUp = y;
-		int yDown = y;
+		int xUp = x+1;
+		int xDown = x-1;
+		int yUp = y-1;
+		int yDown = y+1;
 
 		// bool damit verdeckte Schiffe nicht mitberechnet werden
 		boolean n = false, o = false, s = false, w = false, no = false, so = false, sw = false, nw = false;
@@ -65,52 +67,61 @@ public class Flotte {
 
 			// Grade Richtungen
 
-			if (!n && scanRichtung(x, yUp)) {
+			if (!n && scanCoord(x, yUp) != -1) { 
 				counter++;
 				n = true;
+				// hitPrint(x,yUp);
 			}
 
-			if (!o && scanRichtung(xUp, y)) {
+			if (!o && scanCoord(xUp, y) != -1) {
 				counter++;
 				o = true;
+				// hitPrint(xUp,y);
 			}
 
-			if (!s && scanRichtung(x, yDown)) {
+			if (!s && scanCoord(x, yDown) != -1) {
 				counter++;
 				s = true;
+				// hitPrint(x,yDown);
 			}
 
-			if (!w && scanRichtung(xDown, y)) {
+			if (!w && scanCoord(xDown, y) != -1) {
 				counter++;
 				w = true;
+				// hitPrint(xDown,y);
 			}
 
 			// Diagonale Richtungen
 
-			if (!no && scanRichtung(xUp, yUp)) {
+			if (!no && scanCoord(xUp, yUp) != -1) {
 				counter++;
 				no = true;
+				// hitPrint(xUp,yUp);
 			}
 
-			if (!so && scanRichtung(xUp, yDown)) {
+			if (!so && scanCoord(xUp, yDown) != -1) {
 				counter++;
 				so = true;
+				// hitPrint(xUp,yDown);
 			}
 
-			if (!sw && scanRichtung(xDown, yDown)) {
+			if (!sw && scanCoord(xDown, yDown) != -1) {
 				counter++;
 				sw = true;
+				// hitPrint(xDown,yDown);
 			}
 
-			if (!nw && scanRichtung(xDown, yUp)) {
+			if (!nw && scanCoord(xDown, yUp) != -1) {
 				counter++;
 				nw = true;
+				// hitPrint(xDown,yUp);
 			}
 
+			// up is north, down is south, so y is reverse here 
 			xUp++;
-			yUp++;
+			yUp--;
 			xDown--;
-			yDown--;
+			yDown++;
 		}
 
 		char c = Integer.toString(counter).charAt(0);
@@ -118,36 +129,34 @@ public class Flotte {
 
 	}
 
-	private boolean scanRichtung(int x, int y) {
-
-		if (isInBounds(x, y)) {
-
-			// ist shiff an xy
-			if (scanCoord(x, y)) {
-				return true;
-			}
-		}
-		return false;
+	private void hitPrint(int x, int y) {
+		System.out.println("hit @ " + (char)('a'+x) + "/" + (y+1));
+		
 	}
 
 	private boolean isInBounds(int x, int y) {
 
-		if (x > 0 && y > 0 && x < this.xMax && y < this.yMax) {
+		if (x >= 0 && y >= 0 && x < this.xMax && y < this.yMax) {
 			return true;
 		}
 		return false;
 	}
 
-	private boolean scanCoord(int x, int y) {
+	private int scanCoord(int x, int y) {
+		// Returns found ship index if coord contains a ship (and is in bounds) else 0
 
 		for (int i = 0; i < this.Schiffe.length; i++) {
-			if (this.Schiffe[i].getX() == x & this.Schiffe[i].getY() == y) {
 
-				this.Schiffe[i].setGefunden();
-				return true;
+			if (isInBounds(x, y)) {
+
+				if (this.Schiffe[i].getX() == x && this.Schiffe[i].getY() == y) {
+
+					// this.Schiffe[i].setGefunden();
+					return i;
+				}
 			}
 		}
-		return false;
+		return -1;
 	}
 
 	public boolean istGewonnen() {
